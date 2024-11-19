@@ -1,0 +1,5 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$my-app-theme: mat-light-theme($mat-indigo, $mat-pink);
+@include angular-material-theme($my-app-theme);

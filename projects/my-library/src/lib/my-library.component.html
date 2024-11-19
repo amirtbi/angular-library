@@ -1,0 +1,37 @@
+<div>
+    <h1>Welcome to my application component</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+          <mat-error *ngIf="form.get('name').hasError('required')">
+            Name is required
+          </mat-error>
+          <mat-error *ngIf="form.get('name').hasError('minlength')">
+            Name must be at least 3 characters
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+          <mat-error *ngIf="form.get('email').hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="form.get('email').hasError('email')">
+            Please enter a valid email
+          </mat-error>
+        </mat-form-field>
+      
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          Submit
+        </button>
+      </form>
+    <div>
+        <ul>
+            <li *ngFor="let user of users">
+                    <p>user :{{user.username}}</p>
+            </li>
+        </ul>
+    </div>
+</div>
